@@ -4,12 +4,22 @@
     <title>Mutter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+    </head>
   <body>
+    <header>
+        <a>mutter<a>
+        <a href="#create">投稿</a>
+        <a href="#index">一覧</a>
+        <a href="#login">ログイン</a>
+    </header>
+
     <%= yield %>
+
+    <footer class="footer">
+      <p>運営会社DIVE INTO CODE株式会社</p>
+      <p>© 0001-9999 Copyright DIVE INTO CODE Corp.</p>
+    </footer>
   </body>
 </html>
