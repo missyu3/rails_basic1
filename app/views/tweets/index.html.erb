@@ -1,0 +1,16 @@
+<h3>Tweets一覧</h3>
+<table>
+  <tr>
+    <th>Tweets</th>
+  </tr>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <td>
+        <%= tweet.text %>
+      </td>
+      <td>
+        <%= link_to "編集する", edit_tweet_path(tweet.id) %>
+      </td>  
+    </tr>
+  <% end %>
+</table>
