@@ -10,9 +10,8 @@
   <body>
     <header>
         <a>mutter<a>
-        <a href="#create">投稿</a>
-        <a href="#index">一覧</a>
-        <a href="#login">ログイン</a>
+        <%= link_to '投稿',new_tweet_path %>
+        <%= link_to '一覧',tweets_path %>
     </header>
 
     <%= yield %>
