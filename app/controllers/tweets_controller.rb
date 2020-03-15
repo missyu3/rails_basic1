@@ -5,12 +5,14 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweets = Tweet.new
+    @tweet = Tweet.new
   end
 
   def create 
-    @tweets = Tweet.new(params.require(:tweet).permit(:content))
-    if @tweets.save 
+    @tweet = Tweet.new(get_tweet_params)
+    if params[:'back']
+      render:new
+    elsif @tweet.save 
       redirect_to tweets_path, notice:"ブログを作成しました！"
     else
       render:new
@@ -30,7 +32,14 @@ class TweetsController < ApplicationController
   end
 
   def confirm
+    @tweet = Tweet.new(get_tweet_params)
+    render :new if @tweet.invalid?
+  end
 
+  private
+
+  def get_tweet_params
+    params.require(:tweet).permit(:content)
   end
   
 end
