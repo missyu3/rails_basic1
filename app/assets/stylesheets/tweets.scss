@@ -32,3 +32,15 @@ footer{
   width:100%;
   text-align: center;
 }
+
+table, td, th {
+  margin-left: 2%;
+  border-bottom: 1px solid skyblue;
+}
+table {
+  border-collapse: collapse;
+}
+
+.input_form{
+  margin-left: 2%;
+}
