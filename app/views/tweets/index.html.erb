@@ -6,7 +6,7 @@
   <% @tweets.each do |tweet| %>
     <tr>
       <td>
-        <%= tweet.text %>
+        <%= tweet.content %>
       </td>
       <td>
         <%= link_to "編集する", edit_tweet_path(tweet.id) %>

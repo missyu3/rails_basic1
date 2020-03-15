@@ -5,11 +5,16 @@ class TweetsController < ApplicationController
   end
 
   def new
-
+    @tweets = Tweet.new
   end
 
   def create 
-    
+    @tweets = Tweet.new(params.require(:tweet).permit(:content))
+    if @tweets.save 
+      redirect_to tweets_path, notice:"ブログを作成しました！"
+    else
+      render:new
+    end
   end
 
   def edit
