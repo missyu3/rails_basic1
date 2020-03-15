@@ -4,12 +4,12 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
-  def create 
+  def new
 
   end
 
-  def new
-
+  def create 
+    
   end
 
   def edit
