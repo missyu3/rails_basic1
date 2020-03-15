@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
 
+  before_action :find_tweet, only:[:edit,:update]
+
   def index
     @tweets = Tweet.all
   end
@@ -20,11 +22,14 @@ class TweetsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if @tweet.update(get_tweet_params)
+      redirect_to tweets_path, notice:"編集しました"
+    else
+      render:edit
+    end
   end
 
   def destory
@@ -37,6 +42,9 @@ class TweetsController < ApplicationController
   end
 
   private
+  def find_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
   def get_tweet_params
     params.require(:tweet).permit(:content)
