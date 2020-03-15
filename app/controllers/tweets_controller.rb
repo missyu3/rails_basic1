@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-  before_action :find_tweet, only:[:edit,:update]
+  before_action :find_tweet, only:[:edit,:update,:destroy]
 
   def index
     @tweets = Tweet.all
@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
     if params[:'back']
       render:new
     elsif @tweet.save 
-      redirect_to tweets_path, notice:"ブログを作成しました！"
+      redirect_to tweets_path, notice:"作成しました"
     else
       render:new
     end
@@ -32,8 +32,12 @@ class TweetsController < ApplicationController
     end
   end
 
-  def destory
-
+  def destroy
+   if @tweet.destroy
+    redirect_to tweets_path,notice:"削除しました。"
+  else
+    render:edit
+   end
   end
 
   def confirm

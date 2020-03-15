@@ -1,7 +1,10 @@
-<h3>Tweets一覧</h3>
+<h3>Tweets</h3>
 <table>
+<tr>
+  <%= notice %>
+</tr>
   <tr>
-    <th>Tweets</th>
+    <th>Tweets一覧</th>
   </tr>
   <% @tweets.each do |tweet| %>
     <tr>
@@ -10,6 +13,7 @@
       </td>
       <td>
         <%= link_to "編集する", edit_tweet_path(tweet.id) %>
+        <%= link_to "削除する", tweet_path(tweet.id),method: :delete, data:{   confirm:"本当に編集しても良いですか？"}  %>
       </td>  
     </tr>
   <% end %>
